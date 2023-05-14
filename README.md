@@ -118,3 +118,5 @@ Hain ensin [Draw.ion asennustiedoston GitHubista](https://github.com/jgraph/draw
 [Micron asennustiedoston](https://github.com/zyedidia/micro/releases) hain myös GitHubista. Valitsin Linuxin 64-bittiselle arkkitehtuurille sopivan julkaisun. Latasin tiedoston `wget https://github.com/zyedidia/micro/releases/download/v2.0.11/micro-2.0.11-linux64-static.tar.gz`.
 
 ## Vaihe 5 - Taustakuva keskitetysti
+
+## Vaihe 6 - Kolmas kone ja huipputila
