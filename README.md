@@ -19,5 +19,5 @@ Tämän miniprojektin tarkoituksena on tehdä Vagrantilla ja Saltilla herra-orja
 
 ## Vaihe 1 - Projektin perustaminen & Vagrant
 
-Aloitin kloonamalla tämän varaston kotihakemistooni `git clone git@github.com:hannagrn/salt-miniproject.git`. Vagrantin käyttö edellyttää VirtualBoxin ja Vagrantin asentamista host-koneelle. Loin projektihakemistoon Vagrantfilen, joka määrittelee Vagrantilla luotavan verkon ja koneet. Käytin Vagrantfilen pohjana [Tero Karvisen luomaa määrittelyä kolmen koneen verkolle](https://terokarvinen.com/2023/salt-vagrant/). Pystytin verkon ja käynnistin koneet `vagrant up`
+Aloitin kloonamalla tämän varaston kotihakemistooni `git clone git@github.com:hannagrn/salt-miniproject.git`. Vagrantin käyttö edellyttää VirtualBoxin ja Vagrantin asentamista host-koneelle. Loin projektihakemistoon Vagrantfilen, joka määrittelee Vagrantilla luotavan verkon ja koneet. Käytin Vagrantfilen pohjana [Tero Karvisen luomaa määrittelyä kolmen koneen verkolle](https://terokarvinen.com/2023/salt-vagrant/). Lisäsin siihen Windows-koneen määrittely ja vaihdoin verkon ip:ksi 192.168.56.0/24. Pystytin verkon ja käynnistin koneet `vagrant up`. Vagrant latasi 
 
