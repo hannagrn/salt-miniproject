@@ -8,4 +8,11 @@ This repository is for storing my final project for Configuration management cou
 
 ## Projektin tarkoitus
 
-Tämän miniprojektin tarkoituksena on luonnostella Saltilla herra-orja-arkkitehtuurin ympäristö. Herran on tarkoitus olla ohjauspalvelin, joka määrittelee työasemilla käytössä olevia ohjelmia sekä muita määrityksiä. Projektin on tavoitteena on jäljitellä tilannetta, jossa yritys tarjoaa esiasennetun työaseman työntekijän käyttöön. Työasema on varustettu tarvittavilla ohjelmilla sekä yrityksen ilmeen mukaisen käyttöliittymän kustomoinnilla. Tarkoituksena on tehdä ainakin Debian 11 -työasemia, mutta mahdollisesti myös Windows-työasemia. 
+Tämän miniprojektin tarkoituksena on luonnostella Saltilla herra-orja-arkkitehtuurin ympäristö. Herran on tarkoitus määritellä työasemilla käytössä olevia ohjelmia sekä muita määrityksiä. Projektin on tavoitteena on jäljitellä tilannetta, jossa yritys tarjoaa esiasennetun työaseman työntekijän käyttöön. Työasema on varustettu tarvittavilla ohjelmilla sekä yrityksen ilmeen mukaisen käyttöliittymän kustomoinnilla. Tarkoituksena on tehdä ainakin Debian 11 -työasemia, mutta mahdollisesti myös Windows-työasemia. 
+
+## Tarvitaan
+
+- Ohjelmistot määrittelyineen
+  - Aika moni Linux-jakelu sisältää valmiiksi hyviä ohjelmia, täytyy selvittää mitä muuta tarvitaan
+  - Windowsiin samat ohjelmat: LibreOffice, Inkscape, binääristä Micro ja Draw.io
+- Oikeiden määrittelytiedostojen selvittäminen: esim. mistä tiedostosta määritetään taustakuva
