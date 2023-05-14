@@ -18,7 +18,7 @@ Tämän miniprojektin tarkoituksena on tehdä Vagrantilla ja Saltilla herra-orja
   - Windowsiin samat ohjelmat: LibreOffice, Inkscape, binääristä Micro ja Draw.io
 - Oikeiden määrittelytiedostojen selvittäminen: esim. mistä tiedostosta määritetään taustakuva
 
-## Vaihe 1 - Kulkuri ylös
+## Vaihe 1 - Vagrant up
 
 Kuten aina, ensin päivitetään pakettiluettelo `sudo apt update` ja tarvittaessa päivitetään paketit `sudo apt upgrade`. Loin projektihakemistoon Vagrantfilen, joka määrittelee Vagrantilla luotavan verkon ja koneet. Käytin Vagrantfilen pohjana [Tero Karvisen luomaa määrittelyä kolmen koneen verkolle](https://terokarvinen.com/2023/salt-vagrant/) sekä [Stackoverflow'sta ohjetta Xfce-työpöytäympäristön määrittelyyn](https://stackoverflow.com/questions/18878117/using-vagrant-to-run-virtual-machines-with-desktop-environment). Valitsin Xfce:n, sillä kaikessa yksinkertaisuudessaan se on oma suosikkini Linuxin työpöytäympäristöistä. Vagrantfile sisältää määrittelyt kahdelle orjalle ja yhdelle masterille. Kaikki käyttävät Debian 11 -käyttöjärjestelmää. 
 
@@ -78,7 +78,7 @@ Kuten aina, ensin päivitetään pakettiluettelo `sudo apt update` ja tarvittaes
 
 Pystytin verkon ja käynnistin koneet `vagrant up`. Virtuaalikoneiden käynnistyminen vei 20 minuuttia. Työpöytäympäristön asentaminen kasvatti asennusaikaa huomattavasti. Jos taidot olisivat riittäneet, olisin asentanut Xfce:n vain orjille. Olisikohan se mahdollisesti onnistunut pkg-tilan avulla?
 
-## Vaihe 2 - Avaimet käteen ja menoksi
+## Vaihe 2 - Avaimet & määrittely
 
 Siirryin master-koneelle vagrant ssh. Saadakseni yhteyden Saltilla orjiin pyysin orjien avaimet `sudo salt-key -A`. Molemmat orjat ilmoittautuivat ja hyväksyin ne.
 
@@ -89,3 +89,32 @@ Määrittelin lyhyesti, mitä ohjelmistoja tarkalleen haluan. Tarkoituksena on s
 - Micro (binääri)
 
 Lisäksi haluan, että orjat käyttävät masterin määrittelemää taustakuvaa. Lopuksi, jotta työympäristöä pystyy ylipäänsä käyttämään, luon käyttäjän, jolle kirjautua.
+
+## Vaihe 3 - LibreOffice & Inkscape
+
+Tein ensin tilan LibreOfficen ja Inkscapen asentamiseksi. Tein niille yhteisen tilan, sillä ne molemmat asennetaan aptista pkg.installed-tilan avulla. Ajoin tilan `sudo salt '*' state.apply salt-miniproject/viaapt`. Tilan ajamisessa keksi huomattavan kauan, kuten huomataan deb002-koneen salt-raportista:
+
+![image](https://github.com/hannagrn/salt-miniproject/assets/122886984/2cb3bb75-1a40-4dd5-be46-45c0d914d885)
+
+Asentamisessa meni siis reilu kuusi minuuttia. Kysyin vielä LibreOfficelta, mihin se asensi Libreofficen varmistuakseni asennuksesta `sudo salt 'deb002' cmd.run 'which libreoffice'`:
+
+    deb002:
+        /usr/bin/libreoffice
+        
+Kokeilin vielä idempotenssia ajamalla asennuskomennon uudestaan. 
+
+![image](https://github.com/hannagrn/salt-miniproject/assets/122886984/eae9c362-2941-4a07-9df5-4204774821e2)
+
+Kahden tilan ajo onnistui, mutta mikään ei muuttunut, joten tila on idempotentti.
+
+## Vaihe 4 - Draw.io ja Micro
+
+Draw.io on näppärä työkalu prosessikaavioiden piirtämiseen. Käytän sitä töissä jonkin verran, koska se on kevyt ja helppokäyttöinen nopeaan prosessin luonnehdintaan. Lähtökohtaisesti sitä käytetään selainpohjaisesti, mutta siitä löytyy myös tiedostot paikalliseen asennukseen, jolloin sitä voi käyttää ilman verkkoyhteyttä. Tämän vuoksi halusin sisällyttää sen työasemaprojektiini.
+
+Micro taas on tekstieditori komentorivityöskentelyyn. Se on mielestäni paras työkalu tekstin käsittelyyn Linuxin komentorivillä, ja koska teen Debian-työasemia, on tärkeää, että komentorivityöskentely sujuu tarvittaessa.
+
+Hain ensin [Draw.ion asennustiedoston GitHubista](https://github.com/jgraph/drawio-desktop/releases). Valitsin zipatun x64-tiedoston, sillä sen pitäisi olla yhteensopiva Debianin kanssa. Latasin tiedoston `wget https://github.com/jgraph/drawio-desktop/releases/download/v21.2.8/draw.io-x64-21.2.8.zip`. 
+
+[Micron asennustiedoston](https://github.com/zyedidia/micro/releases) hain myös GitHubista. Valitsin Linuxin 64-bittiselle arkkitehtuurille sopivan julkaisun. Latasin tiedoston `wget https://github.com/zyedidia/micro/releases/download/v2.0.11/micro-2.0.11-linux64-static.tar.gz`.
+
+## Vaihe 5 - Taustakuva keskitetysti
