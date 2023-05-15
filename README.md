@@ -85,14 +85,14 @@ Siirryin master-koneelle vagrant ssh. Saadakseni yhteyden Saltilla orjiin pyysin
 Määrittelin lyhyesti, mitä ohjelmistoja tarkalleen haluan. Tarkoituksena on siis luoda työympäristö, jossa on toimistotyöhön tarvittavat työkalut pienellä lisämausteella:
 - Libreoffice (apt)
 - Inkscape (apt)
-- Draw.io (binääri)
-- Micro (binääri)
+- Micro (apt)
+- Draw.io (snap)
 
 Lisäksi haluan, että orjat käyttävät masterin määrittelemää taustakuvaa. Lopuksi, jotta työympäristöä pystyy ylipäänsä käyttämään, luon käyttäjän, jolle kirjautua.
 
 ## Vaihe 3 - LibreOffice & Inkscape
 
-Tein ensin tilan LibreOfficen ja Inkscapen asentamiseksi. Tein niille yhteisen tilan, sillä ne molemmat asennetaan aptista pkg.installed-tilan avulla. Ajoin tilan `sudo salt '*' state.apply salt-miniproject/viaapt`. Tilan ajamisessa keksi huomattavan kauan, kuten huomataan deb002-koneen salt-raportista:
+Tein ensin tilan LibreOfficen ja Inkscapen asentamiseksi. Tein niille yhteisen viaapt-tilan, sillä ne molemmat asennetaan aptista pkg.installed-tilan avulla. Ajoin tilan `sudo salt '*' state.apply salt-miniproject/viaapt`. Tilan ajamisessa keksi huomattavan kauan, kuten huomataan deb002-koneen salt-raportista:
 
 ![image](https://github.com/hannagrn/salt-miniproject/assets/122886984/2cb3bb75-1a40-4dd5-be46-45c0d914d885)
 
@@ -107,16 +107,20 @@ Kokeilin vielä idempotenssia ajamalla asennuskomennon uudestaan.
 
 Kahden tilan ajo onnistui, mutta mikään ei muuttunut, joten tila on idempotentti.
 
-## Vaihe 4 - Draw.io ja Micro
+## Vaihe 4 - Draw.io Snapilla
 
 Draw.io on näppärä työkalu prosessikaavioiden piirtämiseen. Käytän sitä töissä jonkin verran, koska se on kevyt ja helppokäyttöinen nopeaan prosessin luonnehdintaan. Lähtökohtaisesti sitä käytetään selainpohjaisesti, mutta siitä löytyy myös tiedostot paikalliseen asennukseen, jolloin sitä voi käyttää ilman verkkoyhteyttä. Tämän vuoksi halusin sisällyttää sen työasemaprojektiini.
 
-Micro taas on tekstieditori komentorivityöskentelyyn. Se on mielestäni paras työkalu tekstin käsittelyyn Linuxin komentorivillä, ja koska teen Debian-työasemia, on tärkeää, että komentorivityöskentely sujuu tarvittaessa.
+Hain ensin [Draw.ion asennustiedoston GitHubista](https://github.com/jgraph/drawio-desktop/releases). Päädyin tekemään asennuksen deb-paketin kautta, koska se ylipäänsä onnistui. Myös snapilla (paketinhallintaohjelma) se periaattessa onnistuisi, mutta taidot eivät riittäneet. Latasin deb-paketin masterille `wget https://github.com/jgraph/drawio-desktop/releases/download/v21.2.8/drawio-amd64-21.2.8.deb` ja sitten jäin umpikujaan. Koitan saada selvitettyä esitykseen mennessä.
 
-Hain ensin [Draw.ion asennustiedoston GitHubista](https://github.com/jgraph/drawio-desktop/releases). Valitsin zipatun x64-tiedoston, sillä sen pitäisi olla yhteensopiva Debianin kanssa. Latasin tiedoston `wget https://github.com/jgraph/drawio-desktop/releases/download/v21.2.8/draw.io-x64-21.2.8.zip`. 
+## Vaihe 5 - Micro, binääri vai apt?
 
-[Micron asennustiedoston](https://github.com/zyedidia/micro/releases) hain myös GitHubista. Valitsin Linuxin 64-bittiselle arkkitehtuurille sopivan julkaisun. Latasin tiedoston `wget https://github.com/zyedidia/micro/releases/download/v2.0.11/micro-2.0.11-linux64-static.tar.gz`.
+Olin ensin ajatellut, että asennan micron binääristä _koska voin_. Pohdittuani vaihtoehtoja projektin kontekstissa, päädyin asentamaan sen aptin kautta. Tarkoitus on kuitenkin käyttää microa niin sanotussa peruskäytössä, ja siksi aptissa oleva versio riittää käyttäjälle. Sen avulla voi myös paremmin varmistua siitä, että paketti pysyy ajantasaisena. Päädyin lisäämään micron aiemmin tehtyyn viaapt-tilaan. Ajoin tilan orjille uudestaan `sudo salt --state-output=terse '*'  state.apply salt-miniproject/viaapt`. Alla deb001-koneen tulostus, jossa kaikki tilat onnistuvat, mutta vain yksi muutos tehdään, koska muut paketit ovat jo asennettuna. 
 
-## Vaihe 5 - Taustakuva keskitetysti
+![image](https://github.com/hannagrn/salt-miniproject/assets/122886984/0e858ee6-823d-4a14-9378-219e220947ff)
 
-## Vaihe 6 - Kolmas kone ja huipputila
+## Vaihe 6 - Käyttäjän luonti & taustakuva keskitetysti
+
+Tein newuser-tilan, jonka tarkoituksena on luoda käyttäjä, jolle orjalla voi kirjautua. Loin tilalle init.sls-tiedoston, ja ajoin sen orjilla `sudo salt '*' state.apply salt-miniproject/newuser`. Kirjautuminen ei kuitenkaan onnistunut, vaikka näin ssh:n yli, että käyttäjälle luotiin kotihakemisto. 
+
+## Vaihe 7 - Kolmas kone ja huipputila
