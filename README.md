@@ -2,6 +2,8 @@
 
 Hanna Gröndahl 2023
 
+15 May: still in alpha phase
+
 ## Aluksi
 
 This repository is for storing my final project for Configuration management course in Haaga Helia UAS. Rest of the documentation is in Finnish.
