@@ -107,7 +107,7 @@ Kokeilin vielä idempotenssia ajamalla asennuskomennon uudestaan.
 
 Kahden tilan ajo onnistui, mutta mikään ei muuttunut, joten tila on idempotentti.
 
-## Vaihe 4 - Draw.io Snapilla
+## Vaihe 4 - Draw.io _jollain_
 
 Draw.io on näppärä työkalu prosessikaavioiden piirtämiseen. Käytän sitä töissä jonkin verran, koska se on kevyt ja helppokäyttöinen nopeaan prosessin luonnehdintaan. Lähtökohtaisesti sitä käytetään selainpohjaisesti, mutta siitä löytyy myös tiedostot paikalliseen asennukseen, jolloin sitä voi käyttää ilman verkkoyhteyttä. Tämän vuoksi halusin sisällyttää sen työasemaprojektiini.
 
