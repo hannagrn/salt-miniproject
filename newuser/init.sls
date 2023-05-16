@@ -1,4 +1,4 @@
 testuser:
   user.present:
     - fullname: Hanna Test
-    - password: h49cd=/22 
+    - password: h49cd 
