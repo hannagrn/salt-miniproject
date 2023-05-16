@@ -126,3 +126,21 @@ Olin ensin ajatellut, että asennan micron binääristä _koska voin_. Pohdittua
 Tein newuser-tilan, jonka tarkoituksena on luoda käyttäjä, jolle orjalla voi kirjautua. Loin tilalle init.sls-tiedoston, ja ajoin sen orjilla `sudo salt '*' state.apply salt-miniproject/newuser`. Kirjautuminen ei kuitenkaan onnistunut, vaikka näin ssh:n yli, että käyttäjälle luotiin kotihakemisto. 
 
 ## Vaihe 7 - Kolmas kone ja huipputila
+
+Lisäsin top.sls-tilan, joka määrittelee, mitkä tilat koneissa pitää olla. Määritin kolme luomani tilaa kaikkiin deb-alkuisiin koneisiin.
+
+Kokeilin lisätä Vagrantfileen vielä yhden deb003 koneen. Lisäsin sinne deb002:n ja masterin väliin:
+
+	config.vm.define "deb003" do |deb003|
+		deb003.vm.provision :shell, inline: $minion
+		deb003.vm.network "private_network", ip: "192.168.56.12"
+		deb003.vm.hostname = "deb003"
+		deb003.vm.disk :disk, size: "100GB", primary: true
+
+	end
+
+Kopioin deb002 määrittelyt ja muokkasin deb002->deb003 ja muutin ip:n. `vagrant up` käynnisti uuden koneen asennuksen. Koneen käynnistyttyä pyysin avaimen `sudo salt-key -A` ja hyväksyin deb003:n. Yritin ajaa top.sls-tilaa, mutta sain virhekoodin.
+
+## Lopuksi
+
+Kesken tämä jäi, enkä oikein onnistunut tavoitteessani. Sain kuitenkin jotain elementtejä toimimaan, joten aion jatkaa tämän solmun purkamista ja saada toivomani verkon toimimaan.
