@@ -88,7 +88,7 @@ Määrittelin lyhyesti, mitä ohjelmistoja tarkalleen haluan. Tarkoituksena on s
 - Libreoffice (apt)
 - Inkscape (apt)
 - Micro (apt)
-- Draw.io (snap)
+- Draw.io (deb)
 
 Lisäksi haluan, että orjat käyttävät masterin määrittelemää taustakuvaa. Lopuksi, jotta työympäristöä pystyy ylipäänsä käyttämään, luon käyttäjän, jolle kirjautua.
 
