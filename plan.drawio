@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="Electron" modified="2023-05-16T21:06:30.786Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.8 Chrome/112.0.5615.165 Electron/24.2.0 Safari/537.36" etag="evwKiqIa5v444qUEJG9N" version="21.2.8" type="device">
+  <diagram name="Sivu-1" id="GurSkTZBgXiNe9PRlgQp">
+    <mxGraphModel dx="864" dy="516" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="o7K9_4LPWd06fztLhNUD-8" value="" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="130" y="50" width="590" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="o7K9_4LPWd06fztLhNUD-9" value="192.168.56.0/24" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="160" y="100" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o7K9_4LPWd06fztLhNUD-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;" parent="1" source="o7K9_4LPWd06fztLhNUD-10" target="o7K9_4LPWd06fztLhNUD-11" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o7K9_4LPWd06fztLhNUD-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="o7K9_4LPWd06fztLhNUD-10" target="o7K9_4LPWd06fztLhNUD-12" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="410" y="230" />
+              <mxPoint x="410" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o7K9_4LPWd06fztLhNUD-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;" parent="1" source="o7K9_4LPWd06fztLhNUD-10" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="230" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="621" y="158" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o7K9_4LPWd06fztLhNUD-10" value="Master&lt;br&gt;192.168.56.3" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="350" y="90" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="o7K9_4LPWd06fztLhNUD-11" value="deb001&lt;br&gt;192.168.56.10&lt;br&gt;-libreoffice&lt;br&gt;-inkscape&lt;br&gt;-micro&lt;br&gt;-drawio&lt;br&gt;-taustakuva" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="180" y="230" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="o7K9_4LPWd06fztLhNUD-12" value="deb002&lt;br&gt;192.168.56.11&lt;br&gt;-libreoffice&lt;br&gt;-inkscape&lt;br&gt;-micro&lt;br&gt;-drawio&lt;br&gt;-taustakuva" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="350" y="230" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="o7K9_4LPWd06fztLhNUD-13" value="deb003 jne.." style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="540" y="230" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="o7K9_4LPWd06fztLhNUD-16" value="deb003 jne.." style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="550" y="240" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="o7K9_4LPWd06fztLhNUD-18" value="deb003 jne.." style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="560" y="250" width="120" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
