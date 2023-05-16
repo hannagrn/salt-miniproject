@@ -16,8 +16,6 @@ Tämän miniprojektin tarkoituksena on tehdä Vagrantilla ja Saltilla herra-orja
 
 - Työpöytäympäristön asennus
 - Ohjelmistot määrittelyineen
-  - Aika moni Linux-jakelu sisältää valmiiksi hyviä ohjelmia, täytyy selvittää mitä muuta tarvitaan
-  - Windowsiin samat ohjelmat: LibreOffice, Inkscape, binääristä Micro ja Draw.io
 - Oikeiden määrittelytiedostojen selvittäminen: esim. mistä tiedostosta määritetään taustakuva
 
 ## Vaihe 1 - Vagrant up
