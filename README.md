@@ -144,3 +144,10 @@ Kopioin deb002 määrittelyt ja muokkasin deb002->deb003 ja muutin ip:n. `vagran
 ## Lopuksi
 
 Kesken tämä jäi, enkä oikein onnistunut tavoitteessani. Sain kuitenkin jotain elementtejä toimimaan, joten aion jatkaa tämän solmun purkamista ja saada toivomani verkon toimimaan.
+
+Mitä onnistui:
+- debian-koneet
+- verkko
+- xcfe
+- apt-ohjelmien asennus
+- käyttäjän luominen (osittain)
