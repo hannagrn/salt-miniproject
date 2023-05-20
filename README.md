@@ -111,7 +111,7 @@ Kahden tilan ajo onnistui, mutta mikään ei muuttunut, joten tila on idempotent
 
 Draw.io on näppärä työkalu prosessikaavioiden piirtämiseen. Käytän sitä töissä jonkin verran, koska se on kevyt ja helppokäyttöinen nopeaan prosessin luonnehdintaan. Lähtökohtaisesti sitä käytetään selainpohjaisesti, mutta siitä löytyy myös tiedostot paikalliseen asennukseen, jolloin sitä voi käyttää ilman verkkoyhteyttä. Tämän vuoksi halusin sisällyttää sen työasemaprojektiini.
 
-Hain ensin [Draw.ion asennustiedoston GitHubista](https://github.com/jgraph/drawio-desktop/releases). Päädyin tekemään asennuksen deb-paketin kautta, koska se ylipäänsä onnistui. Myös snapilla (paketinhallintaohjelma) se periaattessa onnistuisi, mutta taidot eivät riittäneet. Latasin deb-paketin masterille `wget https://github.com/jgraph/drawio-desktop/releases/download/v21.2.8/drawio-amd64-21.2.8.deb` ja sitten jäin umpikujaan. Koitan saada selvitettyä esitykseen mennessä.
+Hain ensin [Draw.ion asennustiedoston GitHubista](https://github.com/jgraph/drawio-desktop/releases). Päädyin tekemään asennuksen deb-paketin kautta, koska se ylipäänsä onnistui. Myös snapilla (paketinhallintaohjelma) se periaattessa onnistuisi, mutta deb-asennus on turvallisempi. Latasin deb-paketin masterin kotihakemistoon `wget https://github.com/jgraph/drawio-desktop/releases/download/v21.2.8/drawio-amd64-21.2.8.deb` ja siirsin sen haluamaani paikkaan `sudo mv drawio-amd64-21.2.8.deb /srv/salt/salt-miniproject/viadeb`.Tein init.sls-tiedoston. Tila asentaa ensin gdebin deb-tiedoston asentamiseksi. Sitten se hakee masterilta deb-tiedoston ja ajaa asennuskomennon, jos drawio ei ole asennettuna.
 
 ## Vaihe 5 - Micro, binääri vai apt?
 
